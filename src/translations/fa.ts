@@ -54,6 +54,10 @@ export const fa = {
   },
   footer: {
     copyright: "© ۲۰۲۶ دارا. تمامی حقوق محفوظ است.",
-    builtWith: "ساخته‌شده با Dara UI",
+    builtWith: "ساخته‌شده با دارا UI",
+    tagline: "مهندس نرم‌افزار، سازنده‌ی تجربه‌های وب سریع و قابل دسترس.",
+    colNav: "مسیرها",
+    colContact: "تماس",
+    colElsewhere: "جای دیگر",
   },
 };

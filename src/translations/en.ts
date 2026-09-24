@@ -55,5 +55,9 @@ export const en = {
   footer: {
     copyright: "© 2026 Dara. All rights reserved.",
     builtWith: "Built with Dara UI",
+    tagline: "Software engineer crafting fast, accessible web experiences.",
+    colNav: "Navigate",
+    colContact: "Contact",
+    colElsewhere: "Elsewhere",
   },
 };

@@ -54,6 +54,11 @@ export const fr = {
   },
   footer: {
     copyright: "© 2026 Dara. Tous droits réservés.",
-    builtWith: "Créé avec Dara UI",
+    builtWith: "Construit avec Dara UI",
+    tagline:
+      "Ingénieur logiciel créant des expériences web rapides et accessibles.",
+    colNav: "Navigation",
+    colContact: "Contact",
+    colElsewhere: "Ailleurs",
   },
 };

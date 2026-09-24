@@ -16,6 +16,7 @@ import {
   Particles,
   NoiseOverlay,
   useScrollReveal,
+  Footer,
 } from "dara-ui";
 import type { NavLink } from "dara-ui";
 import { translations } from "./translations";
@@ -277,22 +278,6 @@ function ContactSection() {
   );
 }
 
-function Footer() {
-  const { t } = useI18n();
-  return (
-    <footer className="border-t border-[var(--color-border-primary)] py-8 px-6">
-      <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-[var(--color-text-tertiary)]">
-          {t("footer.copyright")}
-        </p>
-        <p className="text-sm text-[var(--color-text-tertiary)]">
-          {t("footer.builtWith")}
-        </p>
-      </div>
-    </footer>
-  );
-}
-
 /* =============================================
   APP CONTENT
   ============================================= */
@@ -327,6 +312,8 @@ function AppContent() {
           </span>
         }
         links={navLinks}
+        scrollSpy
+        scrollSpyOffset={140}
         showSearch={false}
         showLanguageChanger
         languageChanger={<LanguageChanger iconOnly size="sm" />}
@@ -346,8 +333,72 @@ function AppContent() {
         <ContactSection />
       </main>
 
-      <Footer />
-
+      <Footer
+        brand={
+          <span
+            className="font-heading font-bold text-lg tracking-tight"
+            style={{
+              background: "var(--gradient-primary)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              backgroundClip: "text",
+            }}
+          >
+            {t("brand")}
+          </span>
+        }
+        tagline={t("footer.tagline")}
+        columns={[
+          {
+            title: t("footer.colNav"),
+            links: [
+              { label: t("nav.home"), href: "#home" },
+              { label: t("nav.about"), href: "#about" },
+              { label: t("nav.projects"), href: "#projects" },
+            ],
+          },
+          {
+            title: t("footer.colContact"),
+            content: (
+              <a
+                href="mailto:idarigan@outlook.com"
+                className="text-sm text-[var(--color-primary)] hover:underline"
+                dir="ltr"
+              >
+                idarigan@outlook.com
+              </a>
+            ),
+          },
+          {
+            title: t("footer.colElsewhere"),
+            links: [
+              {
+                label: "GitHub",
+                href: "https://github.com/your-username",
+                external: true,
+              },
+              {
+                label: "LinkedIn",
+                href: "https://linkedin.com/in/your-username",
+                external: true,
+              },
+            ],
+          },
+        ]}
+        bottomBar={
+          <span>
+            {t("footer.copyright")} ·{" "}
+            <a
+              href="https://github.com/idarigan/dara-ui"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[var(--color-primary)] hover:underline"
+            >
+              {t("footer.builtWith")}
+            </a>
+          </span>
+        }
+      />
       <SocialMedia
         links={SOCIAL_LINKS}
         position="left"
