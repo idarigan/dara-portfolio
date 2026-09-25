@@ -50,7 +50,7 @@ export const en = {
       "Whether it's a full project for your business or brand, helping with an existing project, or just wanting to talk things through, feel free to reach out. 🗿",
     emailLabel: "Email",
     sendDirectEmail: "Send email",
-    sendMessage: "Message me on Telegram",
+    sendMessage: "Message on Telegram",
   },
   footer: {
     copyright: "© 2026 Dara. All rights reserved.",
