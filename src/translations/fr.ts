@@ -47,7 +47,7 @@ export const fr = {
   contact: {
     title: "Une idée en tête ?",
     subtitle:
-      "Que ce soit pour un projet complet pour votre entreprise ou votre marque, pour améliorer un projet existant, ou simplement pour discuter d'une idée, n'hésitez pas à me contacter. 🗿",
+      "Que ce soit pour un projet complet pour votre entreprise ou votre marque, pour améliorer un projet existant, ou simplement pour discuter d'une idée, n'hésitez pas à me contacter🗿",
     emailLabel: "E-mail",
     sendEmail: "Envoyer un email",
     sendMessage: "M'écrire sur Telegram",

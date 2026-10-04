@@ -47,7 +47,7 @@ export const en = {
   contact: {
     title: "Got an idea in mind?",
     subtitle:
-      "Whether it's a full project for your business or brand, helping with an existing project, or just wanting to talk things through, feel free to reach out. 🗿",
+      "Whether it's a full project for your business or brand, helping with an existing project, or just wanting to talk things through, feel free to reach out🗿",
     emailLabel: "Email",
     sendDirectEmail: "Send email",
     sendMessage: "Message on Telegram",

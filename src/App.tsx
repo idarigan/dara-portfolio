@@ -17,6 +17,7 @@ import {
   useScrollReveal,
 } from "dara-ui";
 import type { NavLink } from "dara-ui";
+import "dara-ui/style.css";
 import { translations } from "./translations";
 
 /* =============================================
@@ -35,6 +36,7 @@ const PROJECTS = [
     descKey: "projects.p1.desc",
     tagKeys: ["projects.p1.tags.0", "projects.p1.tags.1"],
     color: "primary" as const,
+    repoUrl: "https://github.com/idarigan/begooyar",
   },
   {
     id: "202602",
@@ -42,6 +44,7 @@ const PROJECTS = [
     descKey: "projects.p2.desc",
     tagKeys: ["projects.p2.tags.0", "projects.p2.tags.1", "projects.p2.tags.2"],
     color: "secondary" as const,
+    repoUrl: "https://github.com/idarigan/dara-ui",
   },
   {
     id: "202603",
@@ -49,6 +52,7 @@ const PROJECTS = [
     descKey: "projects.p3.desc",
     tagKeys: ["projects.p3.tags.0", "projects.p3.tags.1"],
     color: "accent" as const,
+    repoUrl: "https://github.com/idarigan/broken-paper",
   },
 ];
 
@@ -147,7 +151,7 @@ function AboutSection() {
         >
           <div className="flex justify-center md:justify-start">
             <Avatar
-              size="xl"
+              size="hero"
               fallbackText={t("about.initials")}
               glow="primary"
               bordered
@@ -198,7 +202,13 @@ function ProjectsSection() {
                     ))}
                   </div>
                   <div className="mt-3">
-                    <Button variant="outline" size="sm" fullWidth>
+                    <Button
+                      as="a"
+                      href={project.repoUrl}
+                      variant="outline"
+                      size="sm"
+                      fullWidth
+                    >
                       {t("projects.viewRepo")}
                     </Button>
                   </div>
@@ -256,7 +266,7 @@ function ContactSection() {
               </span>
               <a
                 href="mailto:idarigan@outlook.com"
-                className="font-heading text-xl md:text-2xl font-bold text-[var(--color-primary)] hover:underline transition-colors"
+                className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-primary)] hover:underline transition-colors"
                 dir="ltr"
               >
                 idarigan@outlook.com
