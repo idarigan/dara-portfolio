@@ -1,7 +1,7 @@
 {
   "name": "dara-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "dara-ui": "^0.4.0",
+    "dara-ui": "^0.4.9",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
