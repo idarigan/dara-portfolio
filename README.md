@@ -73,5 +73,3 @@ export default defineConfig([
   },
 ]);
 ```
-
-> > > > > > > 54ab4ab (feat(contact): add direct-email action and clickable address)
