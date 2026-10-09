@@ -1,75 +1,72 @@
-# dara-portfolio
+# iDarigan
 
-# React + TypeScript + Vite
+**My personal portfolio**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hi, I'm Dara, a full-stack web developer.  
+This is the place I built to show what I work on, what I care about, and how to reach me.
 
-Currently, two official plugins are available:
+**Live site →** [idarigan.vercel.app](https://idarigan.vercel.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Built with my own component library → [Dara UI](https://github.com/idarigan/dara-ui)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What you'll find here
 
-## Expanding the ESLint configuration
+- A short introduction (Nothing Exciting)
+- Selected work (BegooYar, Dara UI, Broken Paper...)
+- The tools and technologies I actually use day to day
+- Easy ways to get in touch (email + Telegram)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Available in **English**, **فارسی**, and **Français**.  
+You can also switch between Dara UI based themes and the default is `nightfall`.
 
-```js
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Tech under the hood
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+|                      |                                                        |
+| -------------------- | ------------------------------------------------------ |
+| Framework            | React 19 + TypeScript                                  |
+| Build tool           | Vite 8                                                 |
+| Styling              | Tailwind CSS 4 + Dara UI                               |
+| Animations & effects | Scroll reveals, particles, aurora blobs, noise overlay |
+| i18n                 | Lightweight custom provider                            |
+| Deployed on          | [Vercel](https://vercel.com)                           |
+
+---
+
+## Running it locally
+
+```bash
+git clone https://github.com/idarigan/dara-portfolio.git
+cd dara-portfolio
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Then open `http://localhost:5173`.
 
-```js
-// eslint.config.js
-import reactX from "eslint-plugin-react-x";
-import reactDom from "eslint-plugin-react-dom";
-
-export default defineConfig([
-  globalIgnores(["dist"]),
-  {
-    files: ["**/*.{ts,tsx}"],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs["recommended-typescript"],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-]);
+```bash
+npm run build     # production build
+npm run preview   # preview the build
+npm run lint      # lint
 ```
+
+---
+
+## A few notes
+
+- Projects and skills lists live at the top of `src/App.tsx`, easy to update.
+- Translations are in `src/translations/`. Adding a new language is just creating a new file and registering it.
+- This site is also a living demo of [Dara UI](https://github.com/idarigan/dara-ui).
+
+---
+
+## License
+
+MIT © 2026 Dara
+
+---
+
+Built with 🖤 and **Dara UI**
