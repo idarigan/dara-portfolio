@@ -18,7 +18,6 @@ import {
   useScrollReveal,
 } from "dara-ui";
 import type { NavLink } from "dara-ui";
-import "dara-ui/style.css";
 import { translations } from "./translations";
 
 /* =============================================
