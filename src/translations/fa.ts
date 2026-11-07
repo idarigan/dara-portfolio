@@ -33,7 +33,7 @@ export const fa = {
     p2: {
       title: "دارا UI",
       desc: "یه کتابخونه ی کامپوننتی مخصوص برنامه های npm که برپایه ی TailwindCSS مخصوص فرانت اند کارا ساخته شده.",
-      tags: ["Vite", "TypeScript", "Tailwindcss"],
+      tags: ["Vite", "TypeScript", "TailwindCSS"],
     },
     p3: {
       title: "Broken Paper",
@@ -49,7 +49,7 @@ export const fa = {
     subtitle:
       "چه پروژه ی کامل برای کسب و کار یا برندِت باشه چه همکاری یا تغییر پروژه های دیگه. اصلا خواستی بریم همینجوری صحبت کنیم🗿",
     emailLabel: "ایمیل",
-    sendEmail: "ارسال ایمیل",
+    sendDirectEmail: "ارسال ایمیل",
     sendMessage: "پیام تو تلگرام",
   },
   footer: {
