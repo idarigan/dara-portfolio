@@ -74,6 +74,19 @@ const SKILLS = [
 ];
 
 /* =============================================
+  HELPERS
+  ============================================= */
+function lookup(lang: string, path: string): string {
+  const parts = path.split(".");
+  let node: unknown = (translations as Record<string, unknown>)[lang];
+  for (const part of parts) {
+    if (node == null) return path;
+    node = (node as Record<string, unknown>)[part];
+  }
+  return typeof node === "string" ? node : path;
+}
+
+/* =============================================
   SECTIONS
   ============================================= */
 function HeroSection() {
@@ -173,7 +186,7 @@ function AboutSection() {
 }
 
 function ProjectsSection() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
@@ -197,7 +210,7 @@ function ProjectsSection() {
                   <div className="flex flex-wrap gap-1.5 mt-2">
                     {project.tagKeys.map((tagKey) => (
                       <Badge key={tagKey} variant="secondary" size="sm" outline>
-                        {t(tagKey)}
+                        {lookup(language, tagKey)}
                       </Badge>
                     ))}
                   </div>
@@ -302,19 +315,14 @@ function Footer() {
   const { t } = useI18n();
   return (
     <footer className="border-t border-[var(--color-border-primary)] py-8 px-6">
-           {" "}
       <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-               {" "}
         <p className="text-sm text-[var(--color-text-tertiary)]">
-                    {t("footer.copyright")}       {" "}
+          {t("footer.copyright")}
         </p>
-               {" "}
         <p className="text-sm text-[var(--color-text-tertiary)]">
-                    {t("footer.builtWith")}       {" "}
+          {t("footer.builtWith")}
         </p>
-             {" "}
       </div>
-         {" "}
     </footer>
   );
 }
