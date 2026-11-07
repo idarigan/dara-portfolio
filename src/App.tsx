@@ -24,9 +24,13 @@ import { translations } from "./translations";
   DATA
   ============================================= */
 const SOCIAL_LINKS = [
-  { platform: "github", url: "https://github.com/idarigan" },
-  { platform: "twitter", url: "https://x.com/daracoder" },
-  { platform: "bluesky", url: "https://bsky.app/profile/idarigan" },
+  { platform: "github", url: "https://github.com/idarigan", label: "GitHub" },
+  { platform: "twitter", url: "https://x.com/daracoder", label: "Twitter" },
+  {
+    platform: "bluesky",
+    url: "https://bsky.app/profile/idarigan",
+    label: "Bluesky",
+  },
 ];
 
 const PROJECTS = [
