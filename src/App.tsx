@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import {
   Navbar,
   ThemeProvider,
@@ -43,7 +44,7 @@ const PROJECTS = [
     titleKey: "projects.p2.title",
     descKey: "projects.p2.desc",
     tagKeys: ["projects.p2.tags.0", "projects.p2.tags.1", "projects.p2.tags.2"],
-    color: "secondary" as const,
+    color: "primary" as const,
     repoUrl: "https://github.com/idarigan/dara-ui",
   },
   {
@@ -51,7 +52,7 @@ const PROJECTS = [
     titleKey: "projects.p3.title",
     descKey: "projects.p3.desc",
     tagKeys: ["projects.p3.tags.0", "projects.p3.tags.1"],
-    color: "accent" as const,
+    color: "primary" as const,
     repoUrl: "https://github.com/idarigan/broken-paper",
   },
 ];
@@ -331,7 +332,13 @@ function Footer() {
   APP CONTENT
   ============================================= */
 function AppContent() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
+
+  useEffect(() => {
+    const dir = language === "fa" ? "rtl" : "ltr";
+    document.documentElement.setAttribute("dir", dir);
+    document.documentElement.setAttribute("lang", language);
+  }, [language]);
 
   const navLinks: NavLink[] = [
     { label: t("nav.home"), href: "#home" },
