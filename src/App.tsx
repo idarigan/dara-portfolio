@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import {
   Navbar,
   ThemeProvider,
@@ -16,6 +16,9 @@ import {
   Particles,
   NoiseOverlay,
   useScrollReveal,
+  BackToTop,
+  useToast,
+  ToastProvider,
 } from "dara-ui";
 import type { NavLink } from "dara-ui";
 import { translations } from "./translations";
@@ -161,29 +164,27 @@ function AboutSection() {
           </h2>
         </ScrollReveal>
 
-        <div
-          className={`grid grid-cols-1 md:grid-cols-3 gap-6 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-          }`}
-        >
-          <div className="flex justify-center md:justify-start">
-            <Avatar
-              size="hero"
-              fallbackText={t("about.initials")}
-              glow="primary"
-              bordered
-            />
-          </div>
+        <ScrollReveal animation="fade-up" delay={120}>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex justify-center md:justify-start">
+              <Avatar
+                size="hero"
+                fallbackText={t("about.initials")}
+                glow="primary"
+                bordered
+              />
+            </div>
 
-          <div className="md:col-span-2 flex flex-col gap-4">
-            <p className="text-[var(--color-text-secondary)] leading-relaxed">
-              {t("about.bio1")}
-            </p>
-            <p className="text-[var(--color-text-secondary)] leading-relaxed">
-              {t("about.bio2")}
-            </p>
+            <div className="md:col-span-2 flex flex-col gap-4">
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                {t("about.bio1")}
+              </p>
+              <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                {t("about.bio2")}
+              </p>
+            </div>
           </div>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
@@ -200,7 +201,7 @@ function ProjectsSection() {
           </h2>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {PROJECTS.map((project, i) => (
             <ScrollReveal key={project.id} animation="fade-up" delay={i * 120}>
               <Card float glow={project.color} className="h-full">
@@ -264,11 +265,27 @@ function SkillsSection() {
   );
 }
 
+/* =============================================
+   CONTACT  (with ToastProvider feedback)
+   ============================================= */
 function ContactSection() {
   const { t } = useI18n();
+  const toast = useToast();
+
+  const email = "idarigan@outlook.com";
+
+  const copyEmail = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(email);
+      toast.success(t("contact.toastCopied") ?? "Email copied to clipboard.");
+    } catch {
+      toast.error(t("contact.toastCopyFailed") ?? "Could not copy email.");
+    }
+  }, [toast, t]);
+
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-2xl mx-auto text-center">
+    <section id="contact" className="py-24 px-6 relative overflow-hidden">
+      <div className="max-w-2xl mx-auto text-center relative z-10">
         <ScrollReveal animation="fade-up">
           <h2 className="font-heading text-3xl md:text-4xl font-bold mb-6">
             {t("contact.title")}
@@ -282,11 +299,11 @@ function ContactSection() {
                 {t("contact.emailLabel")}
               </span>
               <a
-                href="mailto:idarigan@outlook.com"
+                href={`mailto:${email}`}
                 className="font-heading text-2xl md:text-3xl font-bold text-[var(--color-primary)] hover:underline transition-colors"
                 dir="ltr"
               >
-                idarigan@outlook.com
+                {email}
               </a>
               <div className="flex flex-wrap gap-3 justify-center mt-2">
                 <Button
@@ -298,12 +315,7 @@ function ContactSection() {
                 >
                   {t("contact.sendMessage")}
                 </Button>
-                <Button
-                  variant="glass"
-                  onClick={() => {
-                    window.location.href = "mailto:idarigan@outlook.com";
-                  }}
-                >
+                <Button variant="glass" onClick={copyEmail}>
                   {t("contact.sendDirectEmail")}
                 </Button>
               </div>
@@ -352,9 +364,9 @@ function AppContent() {
 
   return (
     <>
-      <NoiseOverlay />
       <AuroraBlobs />
-      <Particles />
+      <BackToTop />
+      <Particles count={100} opacity={0.3} />
 
       <Navbar
         brand={
@@ -410,11 +422,13 @@ function AppContent() {
   ============================================= */
 function App() {
   return (
-    <I18nProvider translations={translations} defaultLanguage="en">
-      <ThemeProvider defaultTheme="nightfall">
-        <AppContent />
-      </ThemeProvider>
-    </I18nProvider>
+    <ToastProvider>
+      <I18nProvider translations={translations} defaultLanguage="en">
+        <ThemeProvider defaultTheme="nightfall">
+          <AppContent />
+        </ThemeProvider>
+      </I18nProvider>
+    </ToastProvider>
   );
 }
 
